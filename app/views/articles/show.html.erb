@@ -1,16 +1,17 @@
-<h1><%= @article.title %></h1>
+<div class="max-w-3xl mx-auto py-16 bg-white min-h-screen px-6 shadow">
+  <h1 class="text-2xl font-bold text-gray-900 pb-4 mr-auto"><%= @article.title %></h1>
+  <div class="flex items-center pb-4">
+    <%= link_to "Edit", edit_article_path(@article), class: "no-underline px-4 py-2 mr-2 rounded bg-white hover:bg-teal-400 cursor-pointer duration-200 text-teal-400 hover:text-white font-bold shadow-md" %>
+    <%= button_to "Destroy", article_path(@article),
+                method: :delete,
+                data: { confirm: "Are you sure?" }, class: "no-underline px-4 py-2 rounded bg-white hover:bg-teal-400 cursor-pointer duration-200 text-teal-400 hover:text-white font-bold shadow-md" %>
+  </div>
 
-<p><%= @article.body %></p>
+  <p class="pb-8 text-lg"><%= @article.body %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %></li>
-</ul>
+  <h2 class="text-xl">Comments</h2>
+  <%= render @article.comments %>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
-
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+  <h2 class="text-xl pt-8">Add a comment:</h2>
+  <%= render 'comments/form' %>
+</div>

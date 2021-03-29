@@ -1,19 +1,19 @@
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
   <p>
     <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
+    <%= form.text_field :commenter, class: "border rounded-md border-gray-100 shadow-md focus:shadow-lg focus:border-gray-200 duration-200 px-4 py-2 outline-none mb-4 w-1/2" %>
   </p>
   <p>
     <%= form.label :body %><br>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: "border rounded-md border-gray-100 shadow-md focus:shadow-lg focus:border-gray-200 duration-200 px-4 py-2 outline-none mb-4 w-1/2 h-24 resize-none" %><br>
   </p>
 
   <p>
     <%= form.label :status %><br>
-    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+    <%= form.select :status, ['public', 'private', 'archived'], { selected: 'public' }, { class: "border rounded-md border-gray-100 shadow-md focus:shadow-lg focus:border-gray-200 duration-200 px-4 py-2 outline-none mb-4 w-1/2 resize-none" } %>
   </p>
 
   <p>
-    <%= form.submit %>
+    <%= form.submit "Create Comment", class: "no-underline px-4 py-2 rounded bg-white hover:bg-teal-400 cursor-pointer duration-200 text-teal-400 hover:text-white font-bold shadow-md" %>
   </p>
 <% end %>

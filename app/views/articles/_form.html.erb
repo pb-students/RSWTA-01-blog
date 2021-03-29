@@ -1,27 +1,27 @@
 <%= form_with model: article do |form| %>
-  <div>
+  <div class="text-lg">
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "border rounded-md border-gray-100 shadow-md focus:shadow-lg focus:border-gray-200 duration-200 px-4 py-2 outline-none mb-4 w-1/2" %>
     <% article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-red-500"><%= message %></div>
     <% end %>
   </div>
 
-  <div>
+  <div class="text-lg">
     <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
+    <%= form.text_area :body, class: "border rounded-md border-gray-100 shadow-md focus:shadow-lg focus:border-gray-200 duration-200 px-4 py-2 outline-none mb-4 w-1/2 h-24 resize-none" %><br>
     <% article.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-red-500"><%= message %></div>
     <% end %>
   </div>
 
-  <div>
+  <div class="text-lg pb-4">
     <%= form.label :status %><br>
-    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+    <%= form.select :status, ['public', 'private', 'archived'], { selected: 'public' }, { class: "border rounded-md border-gray-100 shadow-md focus:shadow-lg focus:border-gray-200 duration-200 px-4 py-2 outline-none mb-4 w-1/2 resize-none" } %>
   </div>
 
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Submit", class: "no-underline px-4 py-2 rounded bg-white hover:bg-teal-400 cursor-pointer duration-200 text-teal-400 hover:text-white font-bold shadow-md" %>
   </div>
 <% end %>

@@ -1,15 +1,11 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
+<div class="border-gray-100 rounded mb-4">
+  <div class="flex">
+    <div class="font-bold text-teal-800 mr-auto"><%= comment.commenter %></div>
 
-<p>
-  <strong>Comment:</strong>
+    <%= button_to 'Destroy Comment', [comment.article, comment],
+                  method: :delete,
+                  data: { confirm: "Are you sure?" },
+                  class: "text-red-500 hover:underline bg-white cursor-pointer"%>
+  </div>
   <%= comment.body %>
-</p>
-
-<p>
-  <%= link_to 'Destroy Comment', [comment.article, comment],
-              method: :delete,
-              data: { confirm: "Are you sure?" } %>
-</p>
+</div>
